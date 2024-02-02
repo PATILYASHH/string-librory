@@ -6,6 +6,7 @@ int lenght();
 int reverce();
 int copy();
 int compare();
+int manu();
 
 int main()
 {
@@ -19,7 +20,7 @@ printf("1] Combine two strings\n");
   printf("4] Copy string to anther string \n");
   printf("3] Compare two strings \n");
 
- sacnf("%d",&options);
+ scanf("%d",&options);
   
 switch(options)
   {
@@ -31,12 +32,16 @@ switch(options)
 
     
     case 2:
-    // 
+    //length
+       lenght();
+
     break;
 
     
     case 3:
-    // 
+    // reverce
+      reverce();
+
     break;
   
     case 4:
@@ -73,9 +78,38 @@ int combine()
   printf("Enter value of sring 2 :");
   scanf("%s",&s2);
 
-  printf("s1 = %s1 \n s2 = %s2");
 
   strcat(s1,s2);
 
-  printf("%s",s1);
+  printf("\v\v%s",s1);
+
+  return 0;
 }
+
+int lenght()
+{
+  char s[100];
+
+printf("enter a string to measure ");
+  scanf("%s",&s);
+
+  printf("The number of character in string is = %d",strlen(s));
+  
+  return 0;
+}
+
+
+// int reverce()
+// {
+//   char sr[100];
+
+//   printf("Enter worlds for reverce ");
+//   scanf("%s",&sr);
+
+//   strrev(sr);
+  
+//   printf("reverced world : \n %s",sr);
+
+//   return 0;
+// }
+
