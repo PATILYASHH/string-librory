@@ -1,115 +1,143 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
 int combine();
-int lenght();
-int reverce();
+int length();
+int reverse();
 int copy();
 int compare();
-int manu();
+void menu();
 
-int main()
-{
-int options;
-  printf("Choose a option : \n\v\v");
+int main() {
+    int option;
+    int retry;
 
+    do {
+        menu();
+        printf("Choose an option: ");
+        scanf("%d", &option);
 
-printf("1] Combine two strings\n");
-  printf("2] Mesure length of string\n");
-  printf("3] Reverce a string \n");
-  printf("4] Copy string to anther string \n");
-  printf("3] Compare two strings \n");
+        switch (option) {
+            case 1:
+                combine();
+                break;
 
- scanf("%d",&options);
-  
-switch(options)
-  {
-    case 1:
-    // combne two strings 
-      combine();
+            case 2:
+                length();
+                break;
 
-    break;
+            case 3:
+                reverse();
+                break;
 
-    
-    case 2:
-    //length
-       lenght();
+            case 4:
+                copy();
+                break;
 
-    break;
+            case 5:
+                compare();
+                break;
 
-    
-    case 3:
-    // reverce
-      reverce();
+            case 6:
+                // exit
+                printf("Exiting program....\n");
+                return 0;
 
-    break;
-  
-    case 4:
-    // 
-    break;
+           
+          default:
+                printf("Invalid option. Please choose a valid option.\n");
+        }
 
+        printf("Do you want to retry? (1 for Yes / 0 for No): ");
+        scanf("%d", &retry);
+    } while (retry == 1);
 
-    case 5:
-    // 
-    break;
-
-
-    case 6:
-    // 
-    break;
-
-
-    default:
-    // 
-    break;
-  }
-  
-  return 0;
+    return 0;
 }
 
-int combine()
-{
-  char s1[100];
-  char s2[100];
-
-  printf("Enter value of sring 1 :");
-  scanf("%s",&s1);
-
-  printf("Enter value of sring 2 :");
-  scanf("%s",&s2);
-
-
-  strcat(s1,s2);
-
-  printf("\v\v%s",s1);
-
-  return 0;
+void menu() {
+    printf("\nChoose an option: \n");
+    printf("1] Combine two strings\n");
+    printf("2] Measure length of a string\n");
+    printf("3] Reverse a string\n");
+    printf("4] Copy a string to another string\n");
+    printf("5] Compare two strings\n");
+    printf("6] Exit\n");
 }
 
-int lenght()
-{
-  char s[100];
+int combine() {
+    char s1[100], s2[100];
 
-printf("enter a string to measure ");
-  scanf("%s",&s);
+    printf("Enter value of string 1: ");
+    scanf("%s", s1);
 
-  printf("The number of character in string is = %d",strlen(s));
-  
-  return 0;
+    printf("Enter value of string 2: ");
+    scanf("%s", s2);
+
+    strcat(s1, s2);
+
+    printf("\n\vCombined string: %s\n\v\v", s1);
+
+    return 0;
 }
 
+int length() {
+    char s[100];
 
-// int reverce()
-// {
-//   char sr[100];
+    printf("Enter a string to measure: ");
+    scanf("%s", s);
 
-//   printf("Enter worlds for reverce ");
-//   scanf("%s",&sr);
+    printf("\v\vThe number of characters in the string is:\t %d\n", strlen(s));
+printf("\v\v\v");
+    return 0;
+}
 
-//   strrev(sr);
-  
-//   printf("reverced world : \n %s",sr);
+int reverse() {
+    char s[100];
 
-//   return 0;
-// }
+    printf("Enter a string to reverse: ");
+    scanf("%s", s);
 
+    int length = strlen(s);
+printf("\v\v");
+    for (int i = length - 1; i >= 0; i--) {
+        printf("%c", s[i]);
+    }
+
+    printf("\n\v\v\v");
+
+    return 0;
+}
+
+int copy() {
+    char s1[100], s2[100];
+
+    printf("Enter value of string to copy from: ");
+    scanf("%s", s1);
+
+    strcpy(s2, s1);
+
+    printf("Copied string: \n%s\n", s2);
+printf("\v\v\v");
+    return 0;
+}
+
+int compare() {
+    char s1[100], s2[100];
+
+    printf("Enter value of string 1: ");
+    scanf("%s", s1);
+
+    printf("Enter value of string 2: ");
+    scanf("%s", s2);
+
+    int result = strcmp(s1, s2);
+
+    if (result == 0) {
+        printf("Both strings are equal.\n");
+    } else {
+        printf("Strings are not equal.\n");
+    }
+printf("\v\v\v");
+    return 0;
+}
